@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "instantcraft",
+  "version": "${version}",
+  "name": "InstantCraft",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+  },
+  "mixins": [
+    "InstantCraft.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.10.8",
+    "fabric": "*",
+    "minecraft": "1.16.4"
+  }
+}

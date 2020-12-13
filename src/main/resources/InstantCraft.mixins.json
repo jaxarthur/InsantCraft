@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.jaxarthur.instantcraft.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+  ],
+  "client": [
+    "InstantCraftMixin",
+    "InstantCraftInvoker"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
