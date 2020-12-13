@@ -1,6 +1,8 @@
 package dev.jaxarthur.instantcraft.mixin;
 
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.screen.ingame.CraftingScreen;
+import net.minecraft.client.gui.screen.ingame.InventoryScreen;
 import net.minecraft.client.network.ClientPlayerInteractionManager;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.screen.slot.SlotActionType;
@@ -18,20 +20,11 @@ public class InstantCraftMixin {
 
     @Inject(at = @At("TAIL"), method = "clickRecipe")
     private void clickRecipe(int syncId, Recipe<?> recipe, boolean craftAll, CallbackInfo info) {
-        if (craftAll) {
-            System.out.println("You just shift clicked!");
+        if (craftAll && (client.currentScreen instanceof CraftingScreen || client.currentScreen instanceof InventoryScreen)) {
+            System.out.println(client.currentScreen);
             ((InstantCraftInvoker) this).invokeClickSlot(syncId, 0, 0, SlotActionType.QUICK_MOVE, client.player);
         }
     }
-
-//    @Inject(at = @At("HEAD"), method = "clickSlot")
-//    private void clickSlot(int syncId, int slotId, int clickData, SlotActionType actionType, PlayerEntity player, CallbackInfoReturnable info) {
-//        System.out.println(syncId);
-//        System.out.println(slotId);
-//        System.out.println(clickData);
-//        System.out.println(actionType);
-//        System.out.println(player);
-//    }
 }
 
 
